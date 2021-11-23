@@ -1,0 +1,39 @@
+import turtle
+import time
+
+#creates a turtle screen for the screen of the game
+wn = turtle.Screen()
+wn.title("Cookie Clicker Presented by Jamir Jackson")
+wn.bgcolor("blue")
+
+#registers gif image from desktop for cookie
+wn.register_shape("cookie.gif")
+
+#Grabs cookie.gif from register and makes that image the shape of the cookie
+cookie = turtle.Turtle()
+cookie.shape("cookie.gif")
+
+
+#Creates clicks function set to 0
+clicks = 0
+
+#Turtle Pen for the number of cookie clicks.
+pen = turtle.Turtle()
+pen.hideturtle()
+pen.color("brown")
+pen.penup()
+pen.goto(0, 400)
+pen.write(f"Clicks: {Cookies}", align="center", font=("Courier New", 32, "normal"))
+
+#Makes clicks global and adds 1 to clicks
+def clicked(x, y):
+    global clicks
+    clicks += 1
+    pen.clear()
+    pen.write(f"Clicks: {Cookies}", align="center", font=("Courier New", 32, "normal"))
+    
+#Defines when cookie is clicked that the clicked function runs and adds 1 to clicks
+cookie.onclick(clicked)
+
+#Sets a loops so clicks can be infinite 
+wn.mainloop()
